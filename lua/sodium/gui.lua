@@ -9,5 +9,6 @@ return {
 	underline = "underline",
 	undercurl = "undercurl",
 	strikethrough = "strikethrough",
+	nocombine = "nocombine",
 	concat = concat,
 }
