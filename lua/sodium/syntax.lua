@@ -30,7 +30,7 @@ local number = palette.purple
 local bool = palette.purple
 local type = palette.yellow
 local class = palette.pink_light
-local global = palette.magenta
+local global = palette.pink
 local repeat_ = palette.magenta
 local emphasis = palette.magenta
 local special = palette.magenta
@@ -68,6 +68,7 @@ local theme = lush(function(injected_functions)
 		Character({ fg = string }),
 		Number({ fg = number }),
 		Boolean({ fg = bool }),
+		Global({ fg = global }),
 
 		Identifier({ fg = identifier }),
 		Function({ fg = fn }),
@@ -125,7 +126,7 @@ local theme = lush(function(injected_functions)
 		sym("@punctuation")({ Delimiter }),
 
 		sym("@constant")({ Constant }),
-		sym("@constant.builtin")({ Special }),
+		sym("@constant.builtin")({ Global }),
 		sym("@constant.macro")({ Define }),
 		sym("@define")({ Define }),
 		sym("@macro")({ Macro }),
@@ -139,7 +140,7 @@ local theme = lush(function(injected_functions)
 		sym("@float")({ ui.Float }),
 
 		sym("@function")({ Function }),
-		sym("@function.builtin")({ Special }),
+		sym("@function.builtin")({ Global }),
 		sym("@function.macro")({ Macro }),
 		sym("@parameter")({ Identifier }),
 		sym("@method")({ Function }),
