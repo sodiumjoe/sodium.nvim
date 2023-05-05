@@ -69,6 +69,7 @@ local theme = lush(function(injected_functions)
 		Number({ fg = number }),
 		Boolean({ fg = bool }),
 		Global({ fg = global }),
+		Float({}),
 
 		Identifier({ fg = identifier }),
 		Function({ fg = fn }),
@@ -137,7 +138,7 @@ local theme = lush(function(injected_functions)
 		sym("@character.special")({ SpecialChar }),
 		sym("@number")({ Number }),
 		sym("@boolean")({ Boolean }),
-		sym("@float")({ ui.Float }),
+		sym("@float")({ Float }),
 
 		sym("@function")({ Function }),
 		sym("@function.builtin")({ Global }),
