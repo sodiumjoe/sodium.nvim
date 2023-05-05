@@ -123,5 +123,11 @@ return lush(function()
 		SignifyLineChange({ DiffChange }),
 		SignifyLineChangeDelete({ SignifyLineChange }),
 		SignifySignDeleteFirstLine({ SignifySignDelete }),
+
+		HopNextKey({ bg = fg, fg = bg }),
+		HopNextKey1({ HopNextKey }),
+		HopNextKey2({ bg = palette.gray_light, fg = palette.black }),
+
+		TreesitterContextLineNumber({ fg = palette.white }),
 	}
 end)

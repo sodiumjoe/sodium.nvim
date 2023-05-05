@@ -8,5 +8,6 @@ return {
 	bold = "bold",
 	underline = "underline",
 	undercurl = "undercurl",
+	strikethrough = "strikethrough",
 	concat = concat,
 }
