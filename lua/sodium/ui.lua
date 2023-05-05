@@ -63,12 +63,13 @@ return lush(function()
 		VertSplit({ fg = border }), -- Column separating vertically split windows
 		Folded({ fg = bg, bg = palette.purple_light, gui = gui.italic }), -- Line used for closed folds
 		FoldColumn({ bg = bg_light, gui = gui.bold }), -- 'foldcolumn'
-		SignColumn({}), -- Column where |signs| are displayed
 		Search({ fg = fg, bg = search, gui = gui.underline }),
 		IncSearch({ fg = bg, bg = search_active, gui = gui.underline }), -- 'incsearch' highlighting; also used for the text replaced with ":s///c"
 		Substitute({ Search }), -- |:substitute| replacement text highlighting
 		LineNr({ fg = bg_light }), -- Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is set.
 		CursorLineNr({ fg = palette.pink }), -- Like LineNr when 'cursorline' or 'relativenumber' is set for the cursor line.
+		SignColumn({ LineNr }), -- Column where |signs| are displayed
+		CursorLineSign({ CursorLineNr }),
 		ModeMsg({ fg = info }), -- 'showmode' message (e.g., "-- INSERT -- ")
 		MsgArea({}), -- Area for messages and cmdline
 		MsgSeparator({ StatusLine }), -- Separator for scrolled messages, `msgsep` flag of 'display'
