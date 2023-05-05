@@ -33,7 +33,7 @@ local class = palette.pink_light
 local global = palette.pink
 local repeat_ = palette.magenta
 local emphasis = palette.magenta
-local special = palette.magenta
+local special = palette.orange
 
 -- LSP/Linters mistakenly show `undefined global` errors in the spec, they may
 -- support an annotation like the following. Consult your server documentation.
