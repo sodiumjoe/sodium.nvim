@@ -31,7 +31,7 @@ local bool = palette.purple
 local type = palette.yellow
 local class = palette.pink_light
 local global = palette.pink
-local repeat_ = palette.magenta
+local repeat_ = palette.pink
 local emphasis = palette.magenta
 local special = palette.orange
 

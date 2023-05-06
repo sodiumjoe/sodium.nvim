@@ -23,7 +23,7 @@ local delete = colors.delete
 
 local border = palette.gray
 
-local search = palette.gray_dark
+local search = palette.gray_darker
 local search_active = palette.white
 
 -- LSP/Linters mistakenly show `undefined global` errors in the spec, they may
@@ -83,8 +83,8 @@ return lush(function()
 		Folded({ fg = bg, bg = palette.purple_light, gui = gui.italic }), -- Line used for closed folds
 		FoldColumn({ bg = bg_light, gui = gui.bold }), -- 'foldcolumn'
 
-		Search({ fg = fg, bg = search, gui = gui.underline }),
-		IncSearch({ fg = bg, bg = search_active, gui = gui.underline }), -- 'incsearch' highlighting; also used for the text replaced with ":s///c"
+		Search({ fg = fg_dark, bg = search, gui = gui.underline }),
+		IncSearch({ fg = bg, bg = search_active, gui = gui.bold }), -- 'incsearch' highlighting; also used for the text replaced with ":s///c"
 		Substitute({ Search }), -- |:substitute| replacement text highlighting
 
 		QuickFixLine({ bg = bg_light }),
