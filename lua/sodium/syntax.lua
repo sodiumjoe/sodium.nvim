@@ -39,7 +39,7 @@ local special = palette.orange
 -- support an annotation like the following. Consult your server documentation.
 ---@diagnostic disable: undefined-global
 
-local theme = lush(function(injected_functions)
+return lush(function(injected_functions)
 	local sym = injected_functions.sym
 	return {
 		-- The following are the Neovim (as of 0.8.0-dev+100-g371dfb174) highlight
@@ -253,5 +253,3 @@ local theme = lush(function(injected_functions)
 		CmpItemKindValueDefault({ CmpItemKindConstantDefault }),
 	}
 end)
-
-return lush.merge({ theme, ui })
