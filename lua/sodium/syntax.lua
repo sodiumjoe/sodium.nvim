@@ -73,6 +73,7 @@ return lush(function(injected_functions)
 
 		Identifier({ fg = identifier }),
 		Function({ fg = fn }),
+		Method({ fg = method }),
 
 		Statement({ fg = statement }),
 		Conditional({ fg = conditional }),
@@ -145,8 +146,8 @@ return lush(function(injected_functions)
 		sym("@function.builtin")({ Global }),
 		sym("@function.macro")({ Macro }),
 		sym("@parameter")({ Identifier }),
-		sym("@method")({ Function }),
-		sym("@method.call")({ fg = method }),
+		sym("@method")({ Method }),
+		sym("@method.call")({ Method }),
 		sym("@field")({ Field }),
 		sym("@property")({ Identifier }),
 		sym("@constructor")({ fg = class }),
@@ -181,7 +182,7 @@ return lush(function(injected_functions)
 		sym("@lsp.type.function")({ Function }),
 		sym("@lsp.type.interface")({ Type }),
 		sym("@lsp.type.macro")({ Macro }),
-		sym("@lsp.type.method")({ Function }),
+		sym("@lsp.type.method")({ Method }),
 		sym("@lsp.type.namespace")({ Structure }),
 		sym("@lsp.type.parameter")({ Identifier }),
 		sym("@lsp.type.property")({ Field }),
