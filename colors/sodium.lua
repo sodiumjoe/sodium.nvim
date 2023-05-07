@@ -546,4 +546,4 @@ end
 package.loaded["sodium"] = nil
 
 -- include our theme file and pass it to lush to apply
-require("lush")(require("sodium"))
+-- require("lush")(require("sodium"))
