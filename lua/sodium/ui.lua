@@ -42,19 +42,25 @@ return lush(function()
 		WarningMsg({ fg = warn }),
 		InfoMsg({ fg = info }),
 		HintMsg({ fg = hint }),
-		NonText({ fg = nontext }), -- '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist in the text (e.g., ">" displayed when a double-wide character doesn't fit at the end of the line). See also |hl-EndOfBuffer|.
-		EndOfBuffer({ NonText }), -- Filler lines (~) after the end of the buffer. By default, this is highlighted like |hl-NonText|.
+		-- '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist in the text (e.g., ">" displayed when a double-wide character doesn't fit at the end of the line). See also |hl-EndOfBuffer|.
+		NonText({ fg = nontext }),
+		-- Filler lines (~) after the end of the buffer. By default, this is highlighted like |hl-NonText|.
+		EndOfBuffer({ NonText }),
 
-		ColorColumn({ gui = gui.reverse }), -- Columns set with 'colorcolumn'
-		Conceal({ NonText }), -- Placeholder characters substituted for concealed text (see 'conceallevel')
-		Cursor({ gui = gui.reverse }), -- Character under the cursor
-		lCursor({ fg = bg, bg = fg }), -- Character under the cursor when |language-mapping| is used (see 'guicursor')
-		-- CursorIM     { }, -- Like Cursor, but used when in IME mode |CursorIM|
+		-- Columns set with 'colorcolumn'
+		ColorColumn({ gui = gui.reverse }),
+		-- Placeholder characters substituted for concealed text (see 'conceallevel')
+		Conceal({ NonText }),
+		Cursor({ gui = gui.reverse }),
+		-- Character under the cursor when |language-mapping| is used (see 'guicursor')
+		lCursor({ fg = bg, bg = fg }),
+		-- Like Cursor, but used when in IME mode |CursorIM|
+		-- CursorIM     { },
 		CursorColumn({ bg = palette.gray_dark }),
-		CursorLine({}), -- Screen-line at the cursor, when 'cursorline' is set. Low-priority if foreground (ctermfg OR guifg) is not set.
-		LineNr({ fg = bg_light }), -- Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is set.
-		CursorLineNr({ fg = palette.pink, gui = gui.bold }), -- Like LineNr when 'cursorline' or 'relativenumber' is set for the cursor line.
-		SignColumn({ LineNr }), -- Column where |signs| are displayed
+		CursorLine({}),
+		LineNr({ fg = bg_light }),
+		CursorLineNr({ fg = palette.pink, gui = gui.bold }),
+		SignColumn({ LineNr }),
 		CursorLineSign({ CursorLineNr }),
 
 		StatusLine({ fg = fg, bg = bg_light }),
@@ -63,29 +69,42 @@ return lush(function()
 		StatusLineError({ fg = error, bg = bg_light }),
 		StatusLineWarning({ fg = warn, bg = bg_light }),
 		StatusLineSeparator({ fg = bg, bg = bg_light }),
-		ModeMsg({ fg = info }), -- 'showmode' message (e.g., "-- INSERT -- ")
-		MsgArea({}), -- Area for messages and cmdline
-		MsgSeparator({ StatusLine }), -- Separator for scrolled messages, `msgsep` flag of 'display'
-		MoreMsg({ fg = bg }), -- |more-prompt|
+		-- 'showmode' message (e.g., "-- INSERT -- ")
+		ModeMsg({ fg = info }),
+		-- Area for messages and cmdline
+		MsgArea({}),
+		-- Separator for scrolled messages, `msgsep` flag of 'display'
+		MsgSeparator({ StatusLine }),
+		-- |more-prompt|
+		MoreMsg({ fg = bg }),
 		Question({ fg = hint, gui = gui.underline }),
 
-		NormalFloat({ fg = palette.blue }), -- Normal text in floating windows.
+		-- Normal text in floating windows.
+		NormalFloat({ fg = palette.blue }),
 		FloatBorder({ fg = border }),
 
-		Pmenu({ fg = fg_dark }), -- Popup menu: Normal item.
-		PmenuSel({ fg = bg, bg = fg_dark }), -- Popup menu: Selected item.
-		PmenuSbar({ bg = bg_light }), -- Popup menu: Scrollbar.
-		PmenuThumb({ bg = fg }), -- Popup menu: Thumb of the scrollbar.
+		-- Popup menu: Normal item.
+		Pmenu({ fg = fg_dark }),
+		-- Popup menu: Selected item.
+		PmenuSel({ fg = bg, bg = fg_dark }),
+		-- Popup menu: Scrollbar.
+		PmenuSbar({ bg = bg_light }),
+		-- Popup menu: Thumb of the scrollbar.
+		PmenuThumb({ bg = fg }),
 
 		TermCursor({ gui = gui.reverse }),
-		-- TermCursorNC { }, -- Cursor in an unfocused terminal
-		VertSplit({ fg = border }), -- Column separating vertically split windows
-		Folded({ fg = bg, bg = palette.purple_light, gui = gui.italic }), -- Line used for closed folds
-		FoldColumn({ bg = bg_light, gui = gui.bold }), -- 'foldcolumn'
+		-- Cursor in an unfocused terminal
+		-- TermCursorNC { },
+		VertSplit({ fg = border }),
+		-- Line used for closed folds
+		Folded({ fg = bg, bg = palette.purple_light, gui = gui.italic }),
+		FoldColumn({ bg = bg_light, gui = gui.bold }),
 
 		Search({ fg = fg_dark, bg = search, gui = gui.underline }),
-		IncSearch({ fg = bg, bg = search_active, gui = gui.bold }), -- 'incsearch' highlighting; also used for the text replaced with ":s///c"
-		Substitute({ Search }), -- |:substitute| replacement text highlighting
+		-- 'incsearch' highlighting; also used for the text replaced with ":s///c"
+		IncSearch({ fg = bg, bg = search_active, gui = gui.bold }),
+		-- |:substitute| replacement text highlighting
+		Substitute({ Search }),
 
 		QuickFixLine({ bg = bg_light }),
 		TabLine({ fg = fg_dark, bg = bg_light }),
@@ -94,10 +113,10 @@ return lush(function()
 		Winseparator({ VertSplit }),
 		WildMenu({ PmenuSel }),
 
-		DiffAdd({ fg = bg, bg = add }), -- Diff mode: Added line |diff.txt|
-		DiffChange({ fg = bg, bg = change }), -- Diff mode: Changed line |diff.txt|
-		DiffDelete({ fg = bg, bg = delete }), -- Diff mode: Deleted line |diff.txt|
-		DiffText({ fg = bg, bg = palette.yellow }), -- Diff mode: Changed text within a changed line |diff.txt|
+		DiffAdd({ fg = bg, bg = add }),
+		DiffChange({ fg = bg, bg = change }),
+		DiffDelete({ fg = bg, bg = delete }),
+		DiffText({ fg = bg, bg = palette.yellow }),
 
 		DiagnosticError({ fg = bg, bg = error }),
 		DiagnosticWarn({ fg = bg, bg = warn }),

@@ -42,25 +42,6 @@ local special = palette.orange
 return lush(function(injected_functions)
 	local sym = injected_functions.sym
 	return {
-		-- The following are the Neovim (as of 0.8.0-dev+100-g371dfb174) highlight
-		-- groups, mostly used for styling UI elements.
-		-- Comment them out and add your own properties to override the defaults.
-		-- An empty definition `{}` will clear all styling, leaving elements looking
-		-- like the 'Normal' group.
-		-- To be able to link to a group, it must already be defined, so you may have
-		-- to reorder items as you go.
-		--
-		-- See :h highlight-groups
-		--
-
-		-- Common vim syntax groups used for all kinds of code and markup.
-		-- Commented-out groups should chain up to their preferred (*) group
-		-- by default.
-		--
-		-- See :h group-name
-		--
-		-- Uncomment and edit if you want more specific syntax highlighting.
-
 		Comment({ fg = trivial, gui = gui.italic }),
 
 		Constant({ fg = constant }),
@@ -111,7 +92,7 @@ return lush(function(injected_functions)
 		Todo({ fg = info, gui = gui.concat({ gui.bold, gui.underline }) }),
 
 		Directory({ fg = identifier, gui = gui.bold }),
-		MatchParen({ fg = palette.pink, gui = gui.concat({ gui.bold, gui.underline }) }), -- Character under the cursor or just before it, if it is a paired bracket, and its match. |pi_paren.txt|
+		MatchParen({ fg = palette.pink, gui = gui.concat({ gui.bold, gui.underline }) }),
 		SpecialKey({ Character }),
 		SpellBad({ gui = gui.undercurl, sp = error }),
 		SpellCap({ gui = gui.undercurl, sp = info }),
@@ -191,7 +172,6 @@ return lush(function(injected_functions)
 		sym("@lsp.type.typeParameter")({ Type }),
 		sym("@lsp.type.variable")({ Identifier }),
 
-		Statment({}),
 		mkdDelimiter({ Delimiter }),
 		mkdLink({ Underlined }),
 		mkdBold({ Ignore }),
@@ -199,7 +179,7 @@ return lush(function(injected_functions)
 		mkdListItem({ Special }),
 		mkdCode({ Keyword }),
 		makeSpecTarget({ Type }),
-		makeCommands({ Statment }),
+		makeCommands({}),
 		markdownLinkText({ mkdLink }),
 		mkdCodeDelimiter({ mkdBold }),
 		mkdCodeStart({ mkdCodeDelimiter }),

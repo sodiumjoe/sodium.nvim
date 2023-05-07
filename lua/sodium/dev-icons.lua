@@ -10,7 +10,6 @@ local gray_light = palette.gray_light
 local white = palette.white
 local red_dark = palette.red_dark
 local red = palette.red
-local red_light = palette.red_light
 local orange = palette.orange
 local orange_light = palette.orange_light
 local yellow = palette.yellow
@@ -23,15 +22,8 @@ local blue_dark = palette.blue_dark
 local cyan = palette.cyan
 local purple = palette.purple
 local purple_light = palette.purple_light
-local pink = palette.pink
-local pink_light = palette.pink_light
 local magenta_dark = palette.magenta_dark
 local magenta = palette.magenta
-local reverse = palette.reverse
-local italic = palette.italic
-local bold = palette.bold
-local underline = palette.underline
-local undercurl = palette.undercurl
 
 -- LSP/Linters mistakenly show `undefined global` errors in the spec, they may
 -- support an annotation like the following. Consult your server documentation.
