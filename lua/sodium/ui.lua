@@ -154,9 +154,10 @@ return lush(function()
 		SignifyLineChangeDelete({ SignifyLineChange }),
 		SignifySignDeleteFirstLine({ SignifySignDelete }),
 
-		HopNextKey({ bg = fg, fg = bg }),
+		HopNextKey({ bg = palette.orange_light, fg = bg }),
 		HopNextKey1({ HopNextKey }),
-		HopNextKey2({ bg = palette.gray_light, fg = palette.black }),
+		HopNextKey2({ bg = palette.orange, fg = palette.black }),
+		HopUnmatched({ bg = bg, fg = fg_dark }),
 
 		TreesitterContextLineNumber({ fg = palette.white }),
 	}
