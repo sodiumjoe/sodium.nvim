@@ -3,7 +3,6 @@ local lush = require("lush")
 local palette = require("sodium.palette")
 local colors = require("sodium.colors")
 local gui = require("sodium.gui")
-local ui = require("sodium.ui")
 
 local fg = colors.fg
 local bg = colors.bg
@@ -32,7 +31,6 @@ local type = palette.yellow
 local class = palette.pink_light
 local global = palette.pink
 local repeat_ = palette.pink
-local emphasis = palette.magenta
 local special = palette.orange
 
 -- LSP/Linters mistakenly show `undefined global` errors in the spec, they may
@@ -40,7 +38,6 @@ local special = palette.orange
 ---@diagnostic disable: undefined-global
 
 return lush(function(injected_functions)
-	local sym = injected_functions.sym
 	return {
 		Comment({ fg = trivial, gui = gui.italic }),
 
@@ -98,98 +95,6 @@ return lush(function(injected_functions)
 		SpellCap({ gui = gui.undercurl, sp = info }),
 		SpellLocal({ gui = gui.undercurl, sp = ok }),
 		SpellRare({ gui = gui.undercurl, sp = warn }),
-
-		sym("@text.literal")({ Comment }),
-		sym("@markup.raw")({ Comment }),
-		sym("@text.reference")({ Identifier }),
-		sym("@markup.link")({ Identifier }),
-		sym("@text.title")({ gui = ui.Title.gui }),
-		sym("@markup.heading")({ gui = ui.Title.gui }),
-		sym("@text.uri")({ Underlined }),
-		sym("@markup.link.url")({ Underlined }),
-		sym("@text.underline")({ Underlined }),
-		sym("@text.todo")({ Todo }),
-
-		sym("@comment")({ Comment }),
-		sym("@punctuation")({ Delimiter }),
-
-		sym("@constant")({ Constant }),
-		sym("@constant.builtin")({ Global }),
-		sym("@constant.macro")({ Define }),
-		sym("@define")({ Define }),
-		sym("@macro")({ Macro }),
-		sym("@string")({ String }),
-		sym("@string.escape")({ SpecialChar }),
-		sym("@string.special")({ SpecialChar }),
-		sym("@markup.link.label")({ SpecialChar }),
-		sym("@character")({ Character }),
-		sym("@character.special")({ SpecialChar }),
-		sym("@number")({ Number }),
-		sym("@boolean")({ Boolean }),
-		sym("@float")({ Float }),
-		sym("@number.float")({ Float }),
-		sym("@symbol")({ Number }),
-		sym("@string.special.symbol")({ Number }),
-		sym("@string.regex")({ Constant }),
-		sym("@string.regexp")({ Constant }),
-
-		sym("@function")({ Function }),
-		sym("@function.builtin")({ Global }),
-		sym("@function.macro")({ Macro }),
-		sym("@parameter")({ Identifier }),
-		sym("@variable.parameter")({ Identifier }),
-		sym("@method")({ Method }),
-		sym("@function.method")({ Method }),
-		sym("@method.call")({ Method }),
-		sym("@field")({ Field }),
-		sym("@variable.member")({ Field }),
-		sym("@property")({ Field }),
-		sym("@constructor")({ fg = class }),
-
-		sym("@conditional")({ Conditional }),
-		sym("@keyword.conditional")({ Conditional }),
-		sym("@repeat")({ Repeat }),
-		sym("@keyword.repeat")({ Repeat }),
-		sym("@label")({ Label }),
-		sym("@operator")({ Operator }),
-		sym("@keyword")({ Keyword }),
-		sym("@exception")({ Exception }),
-		sym("@keyword.exception")({ Exception }),
-
-		sym("@variable")({ Identifier }),
-		sym("@type")({ Type }),
-		sym("@type.definition")({ Typedef }),
-		sym("@storageclass")({ StorageClass }),
-		sym("@structure")({}),
-		sym("@namespace")({ Identifier }),
-		sym("@module")({ Identifier }),
-		sym("@include")({ Include }),
-		sym("@keyword.import")({ Include }),
-		sym("@preproc")({ PreProc }),
-		sym("@debug")({ Debug }),
-		sym("@keyword.debug")({ Debug }),
-		sym("@tag")({ Tag }),
-
-		sym("@tag.attribute")({ Field }),
-		sym("@tag.delimiter")({ Delimiter }),
-
-		sym("@lsp")({}),
-		sym("@lsp.type.class")({ fg = class }),
-		sym("@lsp.type.comment")({ Comment }),
-		sym("@lsp.type.decorator")({ Function }),
-		sym("@lsp.type.enum")({ Structure }),
-		sym("@lsp.type.enumMember")({ Constant }),
-		sym("@lsp.type.function")({ Function }),
-		sym("@lsp.type.interface")({ Type }),
-		sym("@lsp.type.macro")({ Macro }),
-		sym("@lsp.type.method")({ Method }),
-		sym("@lsp.type.namespace")({ Structure }),
-		sym("@lsp.type.parameter")({ Identifier }),
-		sym("@lsp.type.property")({ Field }),
-		sym("@lsp.type.struct")({ Structure }),
-		sym("@lsp.type.type")({ Type }),
-		sym("@lsp.type.typeParameter")({ Type }),
-		sym("@lsp.type.variable")({ Identifier }),
 
 		mkdDelimiter({ Delimiter }),
 		mkdLink({ Underlined }),
