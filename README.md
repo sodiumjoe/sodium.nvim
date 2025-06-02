@@ -5,6 +5,7 @@ to setup your repo clone.
 
 To rebuild:
 
+first, disable sodium plugin, then
 ```vimscript
 :Shipwright
 ```
